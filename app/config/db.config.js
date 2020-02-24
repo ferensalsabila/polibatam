@@ -3,5 +3,5 @@ module.exports = {
     HOST: "localhost",
     USER: "root",
     PASSWORD: "",
-    DATABASE: "polibatam10"
+    DATABASE: "polibatam"
     };

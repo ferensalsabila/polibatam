@@ -2,8 +2,8 @@
 const sql = require("./db.js");
 const Book = function (book) {
 this.title = book.title;
-this.description = Book.description;
-this.images = Book.images;
+this.description = book.description;
+this.images = book.images;
 };
 //Mengambil semua data buku
 Book.getAll = result => {
@@ -37,8 +37,7 @@ Book.findById = (id, result) => {
     // Membuat data buku baru
     Book.create = (newBook, result) => {
     console.log(newBook);
-    sql.query("INSERT INTO books (title, description, images) VALUES (?,?,?)",
-    [newBook.title, newBook.description, newBook.images], (err, res) => {
+    sql.query("INSERT INTO books (title, description, images) VALUES (?,?,?)",[newBook.title, newBook.description, newBook.images], (err, res) => {
         if (err) {
         console.log("error: ", err);
         result(err, null);
@@ -51,10 +50,7 @@ Book.findById = (id, result) => {
         };
         // Mengupdate data buku yang memiliki id = id
         Book.updateById = ( id, Book, result) => {
-        sql.query(
-        "UPDATE Books SET title = ?, description = ?, images = ? WHERE id = ?",
-        [Book.title, Book.description, Book.images, id],
-        (err, res) => {
+        sql.query("UPDATE Books SET title = ?, description = ?, images = ? WHERE id = ?",[Book.title, Book.description, Book.images, id],(err, res) => {
         if (err) {
         console.log("error: ", err);
         result(null, err);
